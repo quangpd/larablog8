@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function login()
     {
         if (session()->has('admin')) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.index');
         }
         return view('backend.login');
     }
@@ -43,7 +43,7 @@ class AdminController extends Controller
                 return redirect()->back()->with('error', 'Password not match');
             } else {
                 $request->session()->put('admin', $user);
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.index');
             }
         }
     }

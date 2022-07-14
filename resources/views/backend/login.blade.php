@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('backend') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -42,28 +42,27 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        @foreach ($errors->all() as $error)
-                                            <p class="text-danger">{{$error}}</p>
-                                        @endforeach
-                                    </div>
+                                        <div class="alert alert-danger">
+                                            @foreach ($errors->all() as $error)
+                                                <p class="text-danger">{{ $error }}</p>
+                                            @endforeach
+                                        </div>
                                     @endif
                                     @if (Session::has('error'))
-                                    <div class="alert alert-danger">
-                                        <p class="text-danger">{{session('error')}}</p>
-                                    </div>
+                                        <div class="alert alert-danger">
+                                            <p class="text-danger">{{ session('error') }}</p>
+                                        </div>
                                     @endif
                                     <form class="user" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="username" aria-describedby="emailHelp"
-                                                name="username"
+                                            <input type="text" class="form-control form-control-user" id="username"
+                                                aria-describedby="emailHelp" name="username"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password"
-                                                id="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user"
+                                                name="password" id="password" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

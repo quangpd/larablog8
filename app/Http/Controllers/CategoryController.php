@@ -17,7 +17,11 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('backend.category.index', ['categories' => $categories]);
+        return view('backend.category.index', [
+            'categories' => $categories,
+            'title' => 'Category List',
+            'meta_description' => 'This is list of all categories',
+        ]);
     }
 
     /**

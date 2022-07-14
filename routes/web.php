@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +25,12 @@ Route::post('admin/login', [AdminController::class, 'doLogin'])->name('admin.doL
 
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-Route::get('admin/home', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 
 Route::resource('admin/category', CategoryController::class);
 Route::get('admin/category/{id}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
+
+Route::resource('admin/post', PostController::class);
+Route::get('admin/post/{id}/delete', [CategoryController::class, 'destroy'])->name('post.delete');
+
+Route::get('admin/setting', [SettingController::class, 'index'])->name('admin.setting');
