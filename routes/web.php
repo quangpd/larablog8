@@ -34,3 +34,4 @@ Route::resource('admin/post', PostController::class);
 Route::get('admin/post/{id}/delete', [CategoryController::class, 'destroy'])->name('post.delete');
 
 Route::get('admin/setting', [SettingController::class, 'index'])->name('admin.setting');
+Route::post('admin/setting', [SettingController::class, 'save'])->name('admin.setting.save');
